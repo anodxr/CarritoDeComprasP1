@@ -14,6 +14,8 @@
 		C6AE8572223978CD0070434C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AE8570223978CD0070434C /* LaunchScreen.storyboard */; };
 		C6AE857D223978CD0070434C /* CarritoDeComprasP1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE857C223978CD0070434C /* CarritoDeComprasP1Tests.swift */; };
 		C6AE8588223978CE0070434C /* CarritoDeComprasP1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8587223978CE0070434C /* CarritoDeComprasP1UITests.swift */; };
+		C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8595223AD2870070434C /* CustomTableViewCell.swift */; };
+		C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8597223AF62B0070434C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C6AE8583223978CE0070434C /* CarritoDeComprasP1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarritoDeComprasP1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AE8587223978CE0070434C /* CarritoDeComprasP1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarritoDeComprasP1UITests.swift; sourceTree = "<group>"; };
 		C6AE8589223978CE0070434C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6AE8595223AD2870070434C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C6AE8597223AF62B0070434C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				C6AE856E223978CD0070434C /* Assets.xcassets */,
 				C6AE8570223978CD0070434C /* LaunchScreen.storyboard */,
 				C6AE8573223978CD0070434C /* Info.plist */,
+				C6AE8595223AD2870070434C /* CustomTableViewCell.swift */,
+				C6AE8597223AF62B0070434C /* DetailViewController.swift */,
 			);
 			path = CarritoDeComprasP1;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */,
 				C6AE856A223978CD0070434C /* ViewController.swift in Sources */,
 				C6AE8568223978CD0070434C /* AppDelegate.swift in Sources */,
+				C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
