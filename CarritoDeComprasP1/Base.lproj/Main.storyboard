@@ -127,11 +127,17 @@
                                 <rect key="frame" x="268" y="563" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="mas:" destination="y9S-H6-5sk" eventType="touchUpInside" id="ucr-MH-B7N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tir-iZ-3gy">
                                 <rect key="frame" x="106" y="563" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="menos:" destination="y9S-H6-5sk" eventType="touchUpInside" id="CQD-9j-4UX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGi-N4-kjm">
                                 <rect key="frame" x="106" y="716" width="210" height="93"/>
@@ -147,10 +153,22 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="nCk-VN-Ocs"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hWx-Z6-j4d" appends="YES" id="d5P-V0-rSk"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="descriptionProd" destination="7fW-R8-gRi" id="EhN-b4-vLW"/>
+                        <outlet property="imageProd" destination="rwS-BU-mp8" id="81e-Bw-NmS"/>
+                        <outlet property="nameProd" destination="Phd-aa-Uec" id="g1B-9d-JsD"/>
+                        <outlet property="priceProd" destination="xvf-ox-tsn" id="TPN-3c-NAH"/>
+                        <outlet property="quantyProd" destination="VjC-H7-959" id="Lik-9H-gGK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ep4-vK-oYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hWx-Z6-j4d"/>
             </objects>
             <point key="canvasLocation" x="1113.0434782608697" y="152.67857142857142"/>
         </scene>

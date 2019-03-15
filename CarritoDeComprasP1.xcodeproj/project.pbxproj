@@ -16,6 +16,7 @@
 		C6AE8588223978CE0070434C /* CarritoDeComprasP1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8587223978CE0070434C /* CarritoDeComprasP1UITests.swift */; };
 		C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8595223AD2870070434C /* CustomTableViewCell.swift */; };
 		C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8597223AF62B0070434C /* DetailViewController.swift */; };
+		C6AE859A223B17FF0070434C /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8599223B17FF0070434C /* Detail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C6AE8589223978CE0070434C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6AE8595223AD2870070434C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C6AE8597223AF62B0070434C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C6AE8599223B17FF0070434C /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				C6AE8573223978CD0070434C /* Info.plist */,
 				C6AE8595223AD2870070434C /* CustomTableViewCell.swift */,
 				C6AE8597223AF62B0070434C /* DetailViewController.swift */,
+				C6AE8599223B17FF0070434C /* Detail.swift */,
 			);
 			path = CarritoDeComprasP1;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */,
+				C6AE859A223B17FF0070434C /* Detail.swift in Sources */,
 				C6AE856A223978CD0070434C /* ViewController.swift in Sources */,
 				C6AE8568223978CD0070434C /* AppDelegate.swift in Sources */,
 				C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */,
