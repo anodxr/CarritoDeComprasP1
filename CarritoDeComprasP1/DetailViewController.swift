@@ -9,17 +9,21 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
-    var detailedProduct = Product()
+    
+    @IBOutlet var tapTouch: UITapGestureRecognizer!
     @IBOutlet weak var nameProd: UILabel!
     @IBOutlet weak var imageProd: UIImageView!
     @IBOutlet weak var descriptionProd: UILabel!
     @IBOutlet weak var priceProd: UILabel!
     @IBOutlet weak var quantyProd: UITextField!
+    var detailedProduct = Product()
+    var firstViewController: ViewController?
     let minProducts: Int = 1
     let maxProducts: Int = 1000
     override func viewDidLoad() {
         super.viewDidLoad()
         quantyProd.delegate = self
+     
         loadProps()
         // Do any additional setup after loading the view.
     }
@@ -28,7 +32,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         imageProd.image = UIImage(named: detailedProduct.imageName)
         descriptionProd.text = detailedProduct.description
         priceProd.text = String(detailedProduct.price)
-        quantyProd.text = "1"
+        quantyProd.text = String(minProducts)
         //mostrando solo teclado numerico
         quantyProd.keyboardType = .numberPad
         //cambiando tema del teclado
@@ -48,31 +52,42 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return numb
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //solo numeros
+        //se setea el textfield para solo paso de caracteres numericos por medio de teclado
         let onlyNumbers = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
-        print(string)
-        let numb: Int = convertStringToInt(numbersCadena: quantyProd.text!+string)
-        if(numb<=maxProducts){
-            return onlyNumbers.isSuperset(of: characterSet)
+        if(onlyNumbers.isSuperset(of: characterSet)){
+            //en esta variable almacenamos del textfield ... se suma el valor actual mas el valor que se esta escribiendo
+            let numb: Int = convertStringToInt(numbersCadena: quantyProd.text!+string)
+            //bloqueamos la edicion del textfield si el valor es mayor que el maximo o menor que el minimo
+            if(numb<=maxProducts && numb>=minProducts){
+                //se permite el paso de caracteres por teclado al textfield
+                return true
+            }
+            else{
+                //se bloquea el paso de caracteres por teclado al textfield
+                return false
+            }
         }
         else{
-            //quantyProd.text = "1000"
             return false
         }
-       
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("hola")
+        //si el campo textfield esta vacio al terminar la edicion, se rellena con el minimo valor
+        if(quantyProd.text!.isEmpty){
+            quantyProd.text = String(minProducts)
+            priceProd.text = String(detailedProduct.price)
+        }else{
+            let numb: Int = convertStringToInt(numbersCadena: quantyProd.text!)
+            priceProd.text = String(detailedProduct.price*Double(numb))
+        }
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("holawqw")
+    @IBAction func exitEdit(_ sender: UITapGestureRecognizer) {
+        //se cierra teclado al dar click fuera
+        view.endEditing(true)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("sss")
-        return false
-    }
+
 
     @IBAction func mas(_ sender: UIButton) {
         var numb: Int = convertStringToInt(numbersCadena: quantyProd.text!)
@@ -83,7 +98,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             numb = maxProducts
         }
         quantyProd.text = String(numb)
-        
+        priceProd.text = String(detailedProduct.price*Double(numb))
     }
     
     @IBAction func menos(_ sender: UIButton) {
@@ -95,8 +110,22 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             numb = minProducts
         }
         quantyProd.text = String(numb)
+        //let x: Double = detailedProduct.price*Double(numb)
+        priceProd.text = String(detailedProduct.price*Double(numb))
     }
     
+
+    @IBAction func buy(_ sender: UIButton) {
+        let product = Buy(name: detailedProduct.name, qty: Int(quantyProd.text!)!, price: detailedProduct.price)
+        let alert = UIAlertController(title: "Compra de \(detailedProduct.name)", message: "Se agregara el siguiente articulo a tu carrito", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            self.firstViewController?.buy.append(product)
+            self.navigationController?.popViewController(animated: true)
+        }))
+        present(alert,animated: true, completion: nil)
+    }
+
     /*
     // MARK: - Navigation
 

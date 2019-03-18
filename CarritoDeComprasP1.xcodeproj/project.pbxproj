@@ -17,6 +17,9 @@
 		C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8595223AD2870070434C /* CustomTableViewCell.swift */; };
 		C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8597223AF62B0070434C /* DetailViewController.swift */; };
 		C6AE859A223B17FF0070434C /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE8599223B17FF0070434C /* Detail.swift */; };
+		C6FECEBC223EC163002282C5 /* DataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FECEBB223EC163002282C5 /* DataJSON.swift */; };
+		C6FECEC0223ECFAA002282C5 /* DataBase.json in Resources */ = {isa = PBXBuildFile; fileRef = C6FECEBF223ECFAA002282C5 /* DataBase.json */; };
+		C6FECEC2223F148C002282C5 /* CarrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FECEC1223F148C002282C5 /* CarrViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		C6AE8595223AD2870070434C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C6AE8597223AF62B0070434C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C6AE8599223B17FF0070434C /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		C6FECEBB223EC163002282C5 /* DataJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataJSON.swift; sourceTree = "<group>"; };
+		C6FECEBF223ECFAA002282C5 /* DataBase.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataBase.json; sourceTree = "<group>"; };
+		C6FECEC1223F148C002282C5 /* CarrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,13 +111,16 @@
 			children = (
 				C6AE8567223978CD0070434C /* AppDelegate.swift */,
 				C6AE8569223978CD0070434C /* ViewController.swift */,
+				C6AE8597223AF62B0070434C /* DetailViewController.swift */,
+				C6FECEC1223F148C002282C5 /* CarrViewController.swift */,
 				C6AE856B223978CD0070434C /* Main.storyboard */,
-				C6AE856E223978CD0070434C /* Assets.xcassets */,
 				C6AE8570223978CD0070434C /* LaunchScreen.storyboard */,
+				C6AE856E223978CD0070434C /* Assets.xcassets */,
 				C6AE8573223978CD0070434C /* Info.plist */,
 				C6AE8595223AD2870070434C /* CustomTableViewCell.swift */,
-				C6AE8597223AF62B0070434C /* DetailViewController.swift */,
 				C6AE8599223B17FF0070434C /* Detail.swift */,
+				C6FECEBB223EC163002282C5 /* DataJSON.swift */,
+				C6FECEBF223ECFAA002282C5 /* DataBase.json */,
 			);
 			path = CarritoDeComprasP1;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 			files = (
 				C6AE8572223978CD0070434C /* LaunchScreen.storyboard in Resources */,
 				C6AE856F223978CD0070434C /* Assets.xcassets in Resources */,
+				C6FECEC0223ECFAA002282C5 /* DataBase.json in Resources */,
 				C6AE856D223978CD0070434C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +278,10 @@
 				C6AE8596223AD2870070434C /* CustomTableViewCell.swift in Sources */,
 				C6AE859A223B17FF0070434C /* Detail.swift in Sources */,
 				C6AE856A223978CD0070434C /* ViewController.swift in Sources */,
+				C6FECEC2223F148C002282C5 /* CarrViewController.swift in Sources */,
 				C6AE8568223978CD0070434C /* AppDelegate.swift in Sources */,
 				C6AE8598223AF62B0070434C /* DetailViewController.swift in Sources */,
+				C6FECEBC223EC163002282C5 /* DataJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

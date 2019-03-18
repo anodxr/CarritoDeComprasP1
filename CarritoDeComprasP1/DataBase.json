@@ -1,0 +1,5 @@
+{
+    "resultCount":50,
+    "results": [{"name": "manzana", "image": "manzana", "detail": "New York", "description": "manzana", "price": 23},{"name": "naranja", "image": "naranja", "detail": "New Mexico", "description": "naranja", "price": 11}]
+
+}

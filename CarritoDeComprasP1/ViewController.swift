@@ -12,37 +12,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tabla: UITableView!
 
-    var productos: [String] = ["manzana","naranja","guayaba"]
-    var imagenes:  [String] = ["manzana","naranja","guayaba"]
-    var descripcion:  [String] = ["manzana","naranja","guayaba"]
-    var precios: [Double] = [1.0,2.3,3.3]
+    @IBOutlet weak var carr: UIBarButtonItem!
+    //var productos: [String] = ["manzana","naranja","guayaba"]
+    //var imagenes:  [String] = ["manzana","naranja","guayaba"]
+    //var descripcion:  [String] = ["manzana","naranja","guayaba"]
+    //var precios: [Double] = [1.0,2.3,3.3]
+    //var productos
+    var firstViewController: ViewController?
+    var buy : [Buy] = []
+    var products: [Products] = []
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        getProducts()
         setupUI()
-        //tambien podemos delegar los permisos de la tabla en code
-        //self.tabla.delegate = self
-        //self.tabla.dataSource = self
-        // Do any additional setup after loading the view, typically from a nib.
-       // productos.append("jjj")
-        //print(productos.endIndex)
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        //tabla.reloadData()
+        tabla.reloadData()
+        getSaveCar()
+        //print(buy)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productos.count
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
         let cell = CustomTableViewCell(style: CustomTableViewCell.CellStyle.subtitle, reuseIdentifier: "celda")
-        cell.textLabel?.text = productos [indexPath.row]
-        cell.detailTextLabel?.text = productos [indexPath.row]
-        cell.imageView?.image = UIImage(named: productos [indexPath.row])
+        cell.textLabel?.text = products[indexPath.row].name
+        cell.detailTextLabel?.text = products[indexPath.row].detail
+        cell.imageView?.image = UIImage(named: products[indexPath.row].image)
         
 
         return cell
@@ -55,10 +58,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let indexPath = tabla.indexPathForSelectedRow
         if segue.identifier == "detail" {
             let detailView = segue.destination as? DetailViewController
-            let selectProduct = Product(name: productos[(indexPath?.row)!], description: descripcion[(indexPath?.row)!], imageName: imagenes[(indexPath?.row)!], price: precios[(indexPath?.row)!])
+            //se crea instancia de producto seleccionado
+            let selectProduct = Product(name: products[indexPath!.row].name, description: products[indexPath!.row].description, detail: products[indexPath!.row].detail, imageName: products[indexPath!.row].image, price: products[indexPath!.row].price)
+            //se carga la vista con el articulo seleccionado del tableview
             detailView?.detailedProduct = selectProduct
-            //secondView?.dato = alumnos[(indexPath?.row)!]
-            
+            detailView?.firstViewController = self
+        }
+        if segue.identifier == "carrito" {
+            let carritoView = segue.destination as? CarrViewController
+            carritoView?.firstViewController = self
         }
     }
 
@@ -68,11 +76,43 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tabla.backgroundColor = UIColor.clear
         
         
+        
     }
     
 
+    func getProducts(){
+        let jsonDecod = JSONDecoder()
+        
+        if let path = Bundle.main.path(forResource: "DataBase", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = try jsonDecod.decode(Results.self, from: data)
+                //print("jsonData:\(jsonObj)")
+                //print(jsonObj.resultCount)
+                var temp: [Products] = []
+                for product in jsonObj.results{
+                
+                    temp.append(product)
+                }
+                products = temp
+                
+            } catch let error {
+                print("error: \(error.localizedDescription)")
+            }
+        } else {
+            print("Error al abrir archivo json")
+        }
+    }
     
-
+    func getSaveCar(){
+        var total: Double = 0.0
+        for productsInCar in buy{
+            total += productsInCar.price*Double(productsInCar.qty)
+        }
+        carr.title = String(buy.count) + " 🛒     Total: " + String(total)
+        
+        
+    }
     
 }
 
