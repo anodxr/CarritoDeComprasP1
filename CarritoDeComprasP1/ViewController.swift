@@ -11,16 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tabla: UITableView!
-
     @IBOutlet weak var carr: UIBarButtonItem!
-    //var productos: [String] = ["manzana","naranja","guayaba"]
-    //var imagenes:  [String] = ["manzana","naranja","guayaba"]
-    //var descripcion:  [String] = ["manzana","naranja","guayaba"]
-    //var precios: [Double] = [1.0,2.3,3.3]
-    //var productos
     var firstViewController: ViewController?
     var buy : [Buy] = []
     var products: [Products] = []
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -33,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tabla.reloadData()
         getSaveCar()
-        //print(buy)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
+        
         let cell = CustomTableViewCell(style: CustomTableViewCell.CellStyle.subtitle, reuseIdentifier: "celda")
         cell.textLabel?.text = products[indexPath.row].name
         cell.detailTextLabel?.text = products[indexPath.row].detail
@@ -71,11 +66,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func setupUI(){
+        
         tabla.separatorStyle = .none
         tabla.rowHeight = 100.0
-        tabla.backgroundColor = UIColor.clear
-        
-        
+        tabla.backgroundColor = .clear
         
     }
     
@@ -87,8 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = try jsonDecod.decode(Results.self, from: data)
-                //print("jsonData:\(jsonObj)")
-                //print(jsonObj.resultCount)
+    
                 var temp: [Products] = []
                 for product in jsonObj.results{
                 

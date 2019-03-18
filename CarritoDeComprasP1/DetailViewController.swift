@@ -110,7 +110,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             numb = minProducts
         }
         quantyProd.text = String(numb)
-        //let x: Double = detailedProduct.price*Double(numb)
+        
         priceProd.text = String(detailedProduct.price*Double(numb))
     }
     
@@ -119,7 +119,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         let product = Buy(name: detailedProduct.name, qty: Int(quantyProd.text!)!, price: detailedProduct.price)
         let alert = UIAlertController(title: "Compra de \(detailedProduct.name)", message: "Se agregara el siguiente articulo a tu carrito", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "✅ Ok", style: .default, handler: { (action) in
             self.firstViewController?.buy.append(product)
             self.navigationController?.popViewController(animated: true)
         }))

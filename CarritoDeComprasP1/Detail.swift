@@ -28,4 +28,5 @@ class Product {
         self.price = price
         
     }
+
 }
