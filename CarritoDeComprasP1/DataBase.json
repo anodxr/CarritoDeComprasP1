@@ -1,5 +1,5 @@
 {
     "resultCount":50,
-    "results": [{"name": "manzana", "image": "manzana", "detail": "New York", "description": "manzana", "price": 23},{"name": "naranja", "image": "naranja", "detail": "New Mexico", "description": "naranja", "price": 11}]
+    "results": [{"name": "Manzana", "image": "manzana", "detail": "Dulce fruta", "description": "Rica manzana", "price": 23},{"name": "Naranja", "image": "naranja", "detail": "Fruta tropical", "description": "Deliciosa y llena de vitamina c", "price": 11},{"name": "Guayaba", "image": "guayaba", "detail": "Dulce fruta", "description": "Rica Guayaba", "price": 6.8}]
 
 }

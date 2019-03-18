@@ -12,6 +12,7 @@ class CarrViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     @IBOutlet weak var tabla: UITableView!
+    @IBOutlet weak var back: UIButton!
     var firstViewController: ViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,25 @@ class CarrViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView(style: tableView.CellStyle.subtitle, reuseIdentifier: "celda")
+       
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value2, reuseIdentifier: "celda")
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
+     
         let articleTot = (firstViewController?.buy[indexPath.row].price)! * Double((firstViewController?.buy[indexPath.row].qty)!)
-        cell.textLabel?.text = String((firstViewController?.buy[indexPath.row].qty)!) + " " + (firstViewController?.buy[indexPath.row].name)! 
+        cell.textLabel?.text = String((firstViewController?.buy[indexPath.row].qty)!) + " " + (firstViewController?.buy[indexPath.row].name)!
         cell.detailTextLabel?.text = "----------- Precio: " + String(articleTot)
         return cell
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Borar") { (action, sourceView, completionHandler) in
+            self.firstViewController?.buy.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+        }
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeConfiguration
+    }
+    @IBAction func cerrar(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
